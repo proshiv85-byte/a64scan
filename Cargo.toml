@@ -1,0 +1,16 @@
+[package]
+name = "a64scan"
+version = "0.1.0"
+edition = "2024"
+description = "Find AArch64 instructions newer than a target CPU supports (ARMv8.1+, SVE, SME, MTE, ...) in ELF binaries"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/proshiv85-byte/a64scan"
+
+[dependencies]
+clap = { version = "4.6", features = ["derive"] }
+memmap2 = "0.9"
+rayon = "1.12"
+
+[profile.release]
+lto = true
+codegen-units = 1

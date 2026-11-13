@@ -1,0 +1,141 @@
+8b020020	none	add x0, x1, x2
+f9400420	none	ldr x0, [x1, #8]
+f8626820	none	ldr x0, [x1, x2]
+c87f0440	none	ldxp x0, x1, [x2]
+c8230440	none	stxp w3, x0, x1, [x2]
+885ffc20	none	ldaxr w0, [x1]
+c8dffc20	none	ldar x0, [x1]
+c89ffc20	none	stlr x0, [x1]
+1e222820	none	fadd s0, s1, s2
+1e622820	none	fadd d0, d1, d2
+1ee24020	none	fcvt s0, h1
+1e23c020	none	fcvt h0, s1
+1ee2c020	none	fcvt d0, h1
+1f420c20	none	fmadd d0, d1, d2, d3
+4e22d420	none	fadd v0.4s, v1.4s, v2.4s
+4ea29c20	none	mul v0.4s, v1.4s, v2.4s
+6fa20020	none	mla v0.4s, v1.4s, v2.s[1]
+0f528020	none	mul v0.4h, v1.4h, v2.h[1]
+4fa28820	none	mul v0.4s, v1.4s, v2.s[3]
+4fa21020	none	fmla v0.4s, v1.4s, v2.s[1]
+4f52c020	none	sqdmulh v0.8h, v1.8h, v2.h[1]
+2ea2c020	none	umull v0.2d, v1.2s, v2.2s
+0e22e020	none	pmull v0.8h, v1.8b, v2.8b
+9ac20820	none	udiv x0, x1, x2
+dac01020	none	clz x0, x1
+d65f03c0	none	ret
+d61f0060	none	br x3
+d63f0060	none	blr x3
+917ffc20	none	add x0, x1, #4095, lsl #12
+a8c17bfd	none	ldp x29, x30, [sp], #16
+d503201f	none	nop
+0000cafe	none	udf #0xcafe
+d4207d00	none	brk #0x3e8
+9ac25c20	crc	crc32cx w0, w1, x2
+1ac24020	crc	crc32b w0, w1, w2
+4e284820	crypto	aese v0.16b, v1.16b
+4e287820	crypto	aesimc v0.16b, v1.16b
+5e024020	crypto	sha256h q0, q1, v2.4s
+5e281820	crypto	sha1su1 v0.4s, v1.4s
+0ee2e020	crypto	pmull v0.1q, v1.1d, v2.1d
+f8200041	lse	ldadd x0, x1, [x2]
+b8e00041	lse	ldaddal w0, w1, [x2]
+3860103f	lse	stclrlb w0, [x1]
+f8206041	lse	ldumax x0, x1, [x2]
+f8e08041	lse	swpal x0, x1, [x2]
+c8a07c41	lse	cas x0, x1, [x2]
+88e0fc41	lse	casal w0, w1, [x2]
+4860fc82	lse	caspal x0, x1, x2, x3, [x4]
+08a07c41	lse	casb w0, w1, [x2]
+6e428420	rdm	sqrdmlah v0.8h, v1.8h, v2.8h
+7e828c20	rdm	sqrdmlsh s0, s1, s2
+6fa2d020	rdm	sqrdmlah v0.4s, v1.4s, v2.s[1]
+1ee22820	fp16	fadd h0, h1, h2
+1ee20820	fp16	fmul h0, h1, h2
+1ef80020	fp16	fcvtzs w0, h1
+9ef80020	fp16	fcvtzs x0, h1
+1ee20020	fp16	scvtf h0, w1
+1ee60020	fp16	fmov w0, h1
+1fc20c20	fp16	fmadd h0, h1, h2, h3
+4e421420	fp16	fadd v0.8h, v1.8h, v2.8h
+0ef8f820	fp16	fabs v0.4h, v1.4h
+4f321020	fp16	fmla v0.8h, v1.8h, v2.h[3]
+7ec21420	fp16	fabd h0, h1, h2
+5ef9b820	fp16	fcvtzs h0, h1
+4e829420	dotprod	sdot v0.4s, v1.16b, v2.16b
+2e829420	dotprod	udot v0.2s, v1.8b, v2.8b
+4fa2e020	dotprod	sdot v0.4s, v1.16b, v2.4b[1]
+ce020c20	sha3	eor3 v0.16b, v1.16b, v2.16b, v3.16b
+ce628020	sha3	sha512h q0, q1, v2.2d
+ce628c20	sha3	rax1 v0.2d, v1.2d, v2.2d
+ce420c20	sha3	sm3ss1 v0.4s, v1.4s, v2.4s, v3.4s
+f8bfc020	rcpc	ldapr x0, [x1]
+38bfc020	rcpc	ldaprb w0, [x1]
+dac10020	pauth	pacia x0, x1
+dac11c20	pauth	autdb x0, x1
+dac143e0	pauth	xpaci x0
+9ac23020	pauth	pacga x0, x1, x2
+d65f0bff	pauth	retaa
+d61f081f	pauth	braaz x0
+d73f0801	pauth	blraa x0, x1
+f8201420	pauth	ldraa x0, [x1, #8]
+1e7e0020	jscvt	fjcvtzs w0, d1
+6e82cc20	fcma	fcmla v0.4s, v1.4s, v2.4s, #90
+6e82f420	fcma	fcadd v0.4s, v1.4s, v2.4s, #270
+6f825820	fcma	fcmla v0.4s, v1.4s, v2.s[1], #180
+d95f8020	rcpc2	ldapur x0, [x1, #-8]
+19003020	rcpc2	stlurb w0, [x1, #3]
+d500401f	flagm	cfinv
+ba018402	flagm	rmif x0, #3, #2
+3a00080d	flagm	setf8 w0
+d500405f	flagm	axflag
+1e284020	frint	frint32z s0, s1
+1e69c020	frint	frint64x d0, d1
+d50330ff	sb	sb
+9adf1020	mte	irg x0, x1
+91810420	mte	addg x0, x1, #16, #1
+9ac20020	mte	subp x0, x1, x2
+d9201820	mte	stg x0, [x1, #16]
+d9600020	mte	ldg x0, [x1]
+d9a02420	mte	st2g x0, [x1], #32
+6e42fc20	bf16	bfdot v0.4s, v1.8h, v2.8h
+6e42ec20	bf16	bfmmla v0.4s, v1.8h, v2.8h
+2ec2fc20	bf16	bfmlalb v0.4s, v1.8h, v2.8h
+1e634020	bf16	bfcvt h0, s1
+0ea16820	bf16	bfcvtn v0.4h, v1.4s
+4f62f020	bf16	bfdot v0.4s, v1.8h, v2.2h[1]
+4fd2f820	bf16	bfmlalt v0.4s, v1.8h, v2.h[5]
+4e82a420	i8mm	smmla v0.4s, v1.16b, v2.16b
+6e82a420	i8mm	ummla v0.4s, v1.16b, v2.16b
+4e82ac20	i8mm	usmmla v0.4s, v1.16b, v2.16b
+4e829c20	i8mm	usdot v0.4s, v1.16b, v2.16b
+4f22f020	i8mm	sudot v0.4s, v1.16b, v2.4b[1]
+0fa2f820	i8mm	usdot v0.2s, v1.8b, v2.4b[3]
+f83fd020	ls64	ld64b x0, [x1]
+f83f9020	ls64	st64b x0, [x1]
+19010440	mops	cpyfp [x0]!, [x1]!, x2!
+19410440	mops	cpyfm [x0]!, [x1]!, x2!
+1d010440	mops	cpyp [x0]!, [x1]!, x2!
+19c20420	mops	setp [x0]!, x1!, x2
+19c28420	mops	sete [x0]!, x1!, x2
+dac02020	cssc	abs x0, x1
+5ac01c20	cssc	cnt w0, w1
+dac01820	cssc	ctz x0, x1
+9ac26020	cssc	smax x0, x1, x2
+11cf2020	cssc	umin w0, w1, #200
+2598e3e0	sve	ptrue p0.s
+a540a000	sve	ld1w {z0.s}, p0/z, [x0]
+65a20020	sve	fmla z0.s, p0/m, z1.s, z2.s
+25a11c00	sve	whilelo p0.s, x0, x1
+45426420	sve	sqdmullt z0.h, z1.b, z2.b
+04bf5020	sve	rdvl x0, #1
+d503477f	sme	smstart
+80812000	sme	fmopa za0.s, p0/m, p1/m, z0.s, z1.s
+e09f0000	sme	ld1w {za0h.s[w12, 0]}, p0/z, [x0]
+c00800ff	sme	zero {za}
+d503233f	hint-pauth	paciasp
+d50323bf	hint-pauth	autiasp
+d503237f	hint-pauth	pacibsp
+d50320ff	hint-pauth	xpaclri
+d503245f	hint-bti	bti c
+d50324df	hint-bti	bti jc
